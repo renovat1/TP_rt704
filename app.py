@@ -1,8 +1,8 @@
-
 #! /usr/bin/python3
-
+# -*- coding: utf-8 -*-
 
 from flask import Flask  #render_templates
+import json
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 videotheque = {
     "proprietaire" : {
         "nom" : "Doe",
-        "prénom" : "john"
+        "prenom" : "john"
     },
     "dernère_modif" : "08/06/2022",
     "films": [
@@ -238,30 +238,53 @@ videotheque = {
 }
 #@app.route("/")
 
-@app.get("/environments/tp704/videotheque") # http://127.0.0.1:5000/environments/tp704/videotheque
-def get_videotheque():
-    return {"videotheque": videotheque}
+@app.get("/videotheques") # http://127.0.0.1:5000/environments/tp704/videotheque
+def get_videotheques():
+    # return {"videotheque": videotheque}
+    print("Started writing JSON data into a file")
+    with open("videotheque.json", "w") as videotheque_file:
+        json.dump(videotheque,videotheque_file, indent=4, separators=(", ", ": "), sort_keys=True) # encode dict into JSON
+    print("Done writing JSON data into .json file")
+    return json.dumps(videotheque)
 
 
-@app.get("/environments/tp704/films")
+@app.get("/films")
 def get_films():
-    videotheques= get_videotheque()
+    videotheques = get_videotheques()
+    f = open('videotheque.json',)
+    # returns JSON object as 
+    # a dictionary
+    data = json.load(f)
+   
+    # Iterating through the json
+    # list
+
     films = []
-    for i in range (len (videotheque)):
-        films.append (videotheque[i].films)
-    return  {"films": films}
+    if data['films'] is not None:
+        print ("len videotheque", len (data))
+        for film in data['films']:
+            print (film)
+        
+            films.append (film)
+    #return  {"films": films}
+    return json.dumps(films)
+    #return films
 
 
 
 
-@app.get("/environments/tp704/actors")
+@app.get("/actors")
 def get_actors():
     # videotheques= get_videotheque()
     films = get_films()
     actors = []
-    for i in range (len (films)):
-        actors.append (films[i].acteurs)
-    return  {"actors": actors}
+    if films  is not None:
+        for i in range (len (films)):
+            actors.append (films[i].acteurs)
+
+    # return  {"actors": actors}
+    json.dumps(actors)
+    return actors
 
 
 
