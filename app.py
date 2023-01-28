@@ -1,9 +1,8 @@
 #! /usr/bin/python3
-# -*- coding: utf-8 -*-
+#-*-coding:utf8-*-
 
-from flask import Flask  #render_templates
+from flask import Flask  ,render_template
 import json
-
 app = Flask(__name__)
 
 
@@ -12,151 +11,151 @@ videotheque = {
         "nom" : "Doe",
         "prenom" : "john"
     },
-    "dernère_modif" : "08/06/2022",
+    "dernier_modif" : "08/06/2022",
     "films": [
         {
             "titre": "Pulp fiction",
-            "année": 1994,
-            "réalisateur": {
+            "annee": 1994,
+            "realisateur": {
                 "nom": "Tanrantino",
-                "prénom": "Quentin"
+                "prenom": "Quentin"
             },
             "acteurs": [
                 {
                     "nom": "Travolta",
-                    "prénom": "John"
+                    "prenom": "John"
                 },
                 {
                     "nom": "Thurman",
-                    "prénom": "Uma"
+                    "prenom": "Uma"
                 },
                 {
                     "nom": "Jackson",
-                    "prénom": "Samuel L."
+                    "prenom": "Samuel L."
                 }
             ]
         },
         {
             "titre": "Impitoyable",
-            "année": 1992,
-            "réalisateur": {
+            "annee": 1992,
+            "realisateur": {
                 "nom": "Eastwood",
-                "prénom": "Clint"
+                "prenom": "Clint"
             },
             "acteurs": [
                 {
                     "nom": "Eastwood",
-                    "prénom": "Clint"
+                    "prenom": "Clint"
                 },
                 {
                     "nom": "Ackman",
-                    "prénom": "Gene"
+                    "prenom": "Gene"
                 },
                 {
                     "nom": "Freeman",
-                    "prénom": "Morgan"
+                    "prenom": "Morgan"
                 }
             ]
         },
         {
             "titre": "Tigre et dragon",
-            "année": 2000,
-            "réalisateur": {
+            "annee": 2000,
+            "realisateur": {
                 "nom": "Lee",
-                "prénom": "Ang"
+                "prenom": "Ang"
             },
             "acteurs": [
                 {
                     "nom": "Yun-Fat",
-                    "prénom": "Chow"
+                    "prenom": "Chow"
                 },
                 {
                     "nom": "Yeoh",
-                    "prénom": "Michelle"
+                    "prenom": "Michelle"
                 },
                 {
                     "nom": "Ziyi",
-                    "prénom": "Zhang"
+                    "prenom": "Zhang"
                 }
             ]
         },
         {
             "titre": "Le Secret des poignards volants",
-            "année": 2004,
-            "réalisateur": {
+            "annee": 2004,
+            "realisateur": {
                 "nom": "Yimou",
-                "prénom": "Zhang"
+                "prenom": "Zhang"
             },
             "acteurs": [
                 {
                     "nom": "Kaneshiro",
-                    "prénom": "Takeshi"
+                    "prenom": "Takeshi"
                 },
                 {
                     "nom": "Lau",
-                    "prénom": "Andy"
+                    "prenom": "Andy"
                 },
                 {
                     "nom": "Ziyi",
-                    "prénom": "Zhang"
+                    "prenom": "Zhang"
                 }
             ]
         },
         {
             "titre": "Forrest Gump",
-            "année": 1994,
-            "réalisateur": {
+            "annee": 1994,
+            "realisateur": {
                 "nom": "Zemeckis",
-                "prénom": "Robert"
+                "prenom": "Robert"
             },
             "acteurs": [
                 {
                     "nom": "Hanks",
-                    "prénom": "Tom"
+                    "prenom": "Tom"
                 },
                 {
                     "nom": "Wright",
-                    "prénom": "Robin"
+                    "prenom": "Robin"
                 },
                 {
                     "nom": "Sinise",
-                    "prénom": "Gary"
+                    "prenom": "Gary"
                 }
             ]
         },
         {
             "titre": "Lawrence d'Arabie",
-            "année": 1962,
-            "réalisateur": {
+            "annee": 1962,
+            "realisateur": {
                 "nom": "Lean",
-                "prénom": "David"
+                "prenom": "David"
             },
             "acteurs": [
                 {
                     "nom": "O'Toole",
-                    "prénom": "Peter"
+                    "prenom": "Peter"
                 },
                 {
                     "nom": "Sharif",
-                    "prénom": "Omar"
+                    "prenom": "Omar"
                 },
                 {
                     "nom": "Guinness",
-                    "prénom": "Alec"
+                    "prenom": "Alec"
                 }
             ]
         },
         {
             "titre": "Le pacha",
-            "année": 1968,
-            "réalisateur": {
+            "annee": 1968,
+            "realisateur": {
                 "nom": "Lautner",
-                "prénom": "Georges"
+                "prenom": "Georges"
             },
             "acteurs": [
                 {
                     "nom": "Gabin",
-                    "prénom": "Jean"
+                    "prenom": "Jean"
                 },
                 {
                     "nom": "Carrel",
@@ -164,73 +163,73 @@ videotheque = {
                 },
                 {
                     "nom": "Pousse",
-                    "prénom": "André"
+                    "prenom": "Andre"
                 }
             ]
         },
         {
             "titre": "Le Bon, la Brute et le Truand",
-            "année": 1966,
-            "réalisateur": {
+            "annee": 1966,
+            "realisateur": {
                 "nom": "Leone",
-                "prénom": "Sergio"
+                "prenom": "Sergio"
             },
             "acteurs": [
                 {
                     "nom": "Eastwood",
-                    "prénom": "Clint"
+                    "prenom": "Clint"
                 },
                 {
                     "nom": "Wallach",
-                    "prénom": "Eli"
+                    "prenom": "Eli"
                 },
                 {
                     "nom": "Van Cleef",
-                    "prénom": "Lee"
+                    "prenom": "Lee"
                 }
             ]
         },
         {
             "titre": "Les tontons flingueurs",
-            "année": 1963,
-            "réalisateur": {
+            "annee": 1963,
+            "realisateur": {
                 "nom": "Lautner",
-                "prénom": "Georges"
+                "prenom": "Georges"
             },
             "acteurs": [
                 {
                     "nom": "Ventura",
-                    "prénom": "Lino"
+                    "prenom": "Lino"
                 },
                 {
                     "nom": "Blier",
-                    "prénom": "Bernard"
+                    "prenom": "Bernard"
                 },
                 {
                     "nom": "Blanche",
-                    "prénom": "Francis"
+                    "prenom": "Francis"
                 }
             ]
         },
         {
             "titre": "Les Blues Brothers",
-            "année": 1980,
-            "réalisateur": {
+            "annee": 1980,
+            "realisateur": {
                 "nom": "Landis",
-                "prénom": "John"
+                "prenom": "John"
             },
             "acteurs": [
                 {
                     "nom": "John",
-                    "prénom": "Belushi"
+                    "prenom": "Belushi"
                 },
                 {
                     "nom": "Akroyd",
-                    "prénom": "Dan"
+                    "prenom": "Dan"
                 },
                 {
                     "nom": "Brown",
-                    "prénom": "James"
+                    "prenom": "James"
                 }
             ]
         }
@@ -238,20 +237,20 @@ videotheque = {
 }
 #@app.route("/")
 
-@app.get("/videotheques") # http://127.0.0.1:5000/environments/tp704/videotheque
+@app.get("/videotheques") 
 def get_videotheques():
     # return {"videotheque": videotheque}
     print("Started writing JSON data into a file")
     with open("videotheque.json", "w") as videotheque_file:
         json.dump(videotheque,videotheque_file, indent=4, separators=(", ", ": "), sort_keys=True) # encode dict into JSON
     print("Done writing JSON data into .json file")
-    return json.dumps(videotheque)
+    return json.dumps(videotheque["films"])
 
 
-@app.get("/films")
+@app.route("/films",methods=['GET'])
 def get_films():
     videotheques = get_videotheques()
-    f = open('videotheque.json',)
+    f = open('videotheque.json','r')
     # returns JSON object as 
     # a dictionary
     data = json.load(f)
@@ -268,23 +267,11 @@ def get_films():
             films.append (film)
     #return  {"films": films}
     return json.dumps(films)
-    #return films
 
+    if __name__ == '__main__':
+        app.run(debug=True, port=5001)
+        print("apif start!")
 
-
-
-@app.get("/actors")
-def get_actors():
-    # videotheques= get_videotheque()
-    films = get_films()
-    actors = []
-    if films  is not None:
-        for i in range (len (films)):
-            actors.append (films[i].acteurs)
-
-    # return  {"actors": actors}
-    json.dumps(actors)
-    return actors
 
 
 

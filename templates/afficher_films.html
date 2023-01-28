@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+
+<table>
+    <tr>
+      <td width="10%">titre</td>
+      <td width="10%">annee</td>
+      <td width="10%">realisateur nom</td>
+      <td width="10%">realisateur prenom</td>
+
+    </tr>
+    {% for datas in data %}
+    <tr>
+      <td width="10%">{{ datas['titre']}}</td>
+      <td width="10%">{{ datas['annee']}}</td>
+      <td width="10%">{{ datas['realisateur']['nom']}}</td>
+      <td width="10%">{{ datas['realisateur']['prenom']}}</td>
+
+    </tr>
+{% endfor %}
+  </table>
+            
