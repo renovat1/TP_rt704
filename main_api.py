@@ -27,6 +27,11 @@ def get_Info(titre, annee):
 
 #Ajouter un film
 
+
+@app.route('/post_films')
+def add_film():
+    return render_template('ajout.html')
+
 """
 
 films = []
